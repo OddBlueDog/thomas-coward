@@ -1,35 +1,35 @@
 <?php
 require_once('wp_bootstrap_navwalker.php');
-add_action('after_setup_theme', 'blankslate_setup');
-function blankslate_setup()
+add_action('after_setup_theme', 'thomascoward_setup');
+function thomascoward_setup()
 {
-    load_theme_textdomain('blankslate', get_template_directory() . '/languages');
+    load_theme_textdomain('thomascoward', get_template_directory() . '/languages');
     add_theme_support('title-tag');
     add_theme_support('automatic-feed-links');
     add_theme_support('post-thumbnails');
     global $content_width;
     if (!isset($content_width)) $content_width = 640;
     register_nav_menus(
-        array('main-menu' => __('Main Menu', 'blankslate'))
+        array('main-menu' => __('Main Menu', 'thomascoward'))
     );
 }
 
-add_action('wp_enqueue_scripts', 'blankslate_load_scripts');
-function blankslate_load_scripts()
+add_action('wp_enqueue_scripts', 'thomascoward_load_scripts');
+function thomascoward_load_scripts()
 {
     wp_enqueue_script( 'bundle', 'js/bundle.js', false );
 }
 
-add_action('comment_form_before', 'blankslate_enqueue_comment_reply_script');
-function blankslate_enqueue_comment_reply_script()
+add_action('comment_form_before', 'thomascoward_enqueue_comment_reply_script');
+function thomascoward_enqueue_comment_reply_script()
 {
     if (get_option('thread_comments')) {
         wp_enqueue_script('comment-reply');
     }
 }
 
-add_filter('the_title', 'blankslate_title');
-function blankslate_title($title)
+add_filter('the_title', 'thomascoward_title');
+function thomascoward_title($title)
 {
     if ($title == '') {
         return '&rarr;';
@@ -38,17 +38,17 @@ function blankslate_title($title)
     }
 }
 
-add_filter('wp_title', 'blankslate_filter_wp_title');
-function blankslate_filter_wp_title($title)
+add_filter('wp_title', 'thomascoward_filter_wp_title');
+function thomascoward_filter_wp_title($title)
 {
     return $title . esc_attr(get_bloginfo('name'));
 }
 
-add_action('widgets_init', 'blankslate_widgets_init');
-function blankslate_widgets_init()
+add_action('widgets_init', 'thomascoward_widgets_init');
+function thomascoward_widgets_init()
 {
     register_sidebar(array(
-        'name' => __('Sidebar Widget Area', 'blankslate'),
+        'name' => __('Sidebar Widget Area', 'thomascoward'),
         'id' => 'primary-widget-area',
         'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
         'after_widget' => "</li>",
@@ -57,7 +57,7 @@ function blankslate_widgets_init()
     ));
 }
 
-function blankslate_custom_pings($comment)
+function thomascoward_custom_pings($comment)
 {
     $GLOBALS['comment'] = $comment;
     ?>
@@ -65,8 +65,8 @@ function blankslate_custom_pings($comment)
     <?php
 }
 
-add_filter('get_comments_number', 'blankslate_comments_number');
-function blankslate_comments_number($count)
+add_filter('get_comments_number', 'thomascoward_comments_number');
+function thomascoward_comments_number($count)
 {
     if (!is_admin()) {
         global $id;
