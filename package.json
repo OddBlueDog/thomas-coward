@@ -1,0 +1,44 @@
+{
+  "name": "Thomas-Coward",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:js": "browserify js/main.js > js/bundle.js && uglifyjs js/bundle.js -c -o js/bundle.js",
+    "watch:css": "node-sass --watch scss/main.scss -o dist/css",
+    "build:css": "node-sass scss/main.scss > css/main.css && npm run build:postcss",
+    "build:postcss": "postcss --use autoprefixer css/main.css -o css/main.css",
+    "build:cssclean": "cleancss -o css/main.css css/main.css",
+    "build": "npm run build:css && npm run build:cssclean && npm run build:js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap-sass": "^3.3.7",
+    "jquery": "^3.1.0"
+  },
+  "browser": {
+    "bootstrap": "./node_modules/bootstrap-sass/assets/javascripts/bootstrap.js"
+  },
+  "browserify": {
+    "transform": [
+      "browserify-shim"
+    ]
+  },
+  "browserify-shim": {
+    "bootstrap": {
+      "depends": [
+        "jquery:jQuery"
+      ]
+    }
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.4.0",
+    "autoprefixer-core": "^6.0.1",
+    "browserify": "^11.0.1",
+    "browserify-shim": "^3.8.10",
+    "clean-css": "^3.4.1",
+    "node-sass": "^3.8.0",
+    "postcss-cli": "^2.5.2s",
+    "uglify-js": "^2.4.24"
+  }
+}
