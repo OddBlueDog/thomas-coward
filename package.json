@@ -4,10 +4,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:js": "browserify js/main.js > js/bundle.js && uglifyjs js/bundle.js -c -o js/bundle.js",
-    "watch:css": "node-sass --watch scss/main.scss -o dist/css",
-    "build:css": "node-sass scss/main.scss > css/main.css && npm run build:postcss",
-    "build:postcss": "postcss --use autoprefixer css/main.css -o css/main.css",
-    "build:cssclean": "cleancss -o css/main.css css/main.css",
+    "watch:css": "node-sass --watch scss/main.scss -o style",
+    "build:css": "node-sass scss/main.scss > style.css && npm run build:postcss",
+    "build:postcss": "postcss --use autoprefixer style.css -o style.css",
+    "build:cssclean": "cleancss -o style.css style.css",
     "build": "npm run build:css && npm run build:cssclean && npm run build:js"
   },
   "author": "",

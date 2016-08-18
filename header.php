@@ -8,22 +8,43 @@
 </head>
 <body <?php body_class(); ?>>
 <div id="wrapper" class="hfeed">
-    <header id="header" role="banner">
-        <section id="branding">
-            <div id="site-title"><?php if (is_front_page() || is_home() || is_front_page() && is_home()) {
-                    echo '<h1>';
-                } ?><a href="<?php echo esc_url(home_url('/')); ?>"
-                       title="<?php echo esc_html(get_bloginfo('name')); ?>"
-                       rel="home"><?php echo esc_html(get_bloginfo('name')); ?></a><?php if (is_front_page() || is_home() || is_front_page() && is_home()) {
-                    echo '</h1>';
-                } ?></div>
-            <div id="site-description"><?php bloginfo('description'); ?></div>
-        </section>
-        <nav id="menu" role="navigation">
-            <div id="search">
-                <?php get_search_form(); ?>
-            </div>
-            <?php wp_nav_menu(array('theme_location' => 'main-menu')); ?>
-        </nav>
-    </header>
+
+    <div class="container">
+        <header id="header" role="banner">
+
+            <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+                <div class="container">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse"
+                                data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="<?php echo home_url(); ?>">
+                            <?php bloginfo('name'); ?>
+                        </a>
+                    </div>
+
+                    <?php
+                    wp_nav_menu(array(
+                            'menu' => 'primary',
+                            'theme_location' => 'primary',
+                            'depth' => 2,
+                            'container' => 'div',
+                            'container_class' => 'collapse navbar-collapse',
+                            'container_id' => 'bs-example-navbar-collapse-1',
+                            'menu_class' => 'nav navbar-nav',
+                            'fallback_cb' => 'wp_bootstrap_navwalker::fallback',
+                            'walker' => new wp_bootstrap_navwalker())
+                    );
+                    ?>
+                </div>
+            </nav>
+
+
+        </header>
+    </div>
     <div id="container">
