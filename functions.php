@@ -17,7 +17,7 @@ function thomascoward_setup()
 add_action('wp_enqueue_scripts', 'thomascoward_load_scripts');
 function thomascoward_load_scripts()
 {
-    wp_enqueue_script( 'bundle',  get_template_directory_uri() . '/js/bundle.js', false );
+    wp_enqueue_script( 'bundle',  get_template_directory_uri() . '/js/bundle.js', false, false, true );
 }
 
 add_action('comment_form_before', 'thomascoward_enqueue_comment_reply_script');

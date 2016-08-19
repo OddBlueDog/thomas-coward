@@ -1,2 +1,23 @@
 @import 'bootstrap-variables';
 @import '../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss';
+
+
+// Fonts
+@import 'https://fonts.googleapis.com/css?family=Exo:200';
+@import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css';
+
+
+
+// Base
+@import 'base/base';
+@import 'base/footer';
+
+
+
+// Bootstrap overrides
+@import 'bootstrap/navbar';
+
+
+
+// Components
+@import 'components/home-banner';

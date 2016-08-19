@@ -4,7 +4,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:js": "browserify js/main.js > js/bundle.js && uglifyjs js/bundle.js -c -o js/bundle.js",
-    "watch:css": "node-sass --watch scss/main.scss -o style",
+    "watch:css": "node-sass --watch scss/main.scss style.css",
     "build:css": "node-sass scss/main.scss > style.css && npm run build:postcss",
     "build:postcss": "postcss --use autoprefixer style.css -o style.css",
     "build:cssclean": "cleancss -o style.css style.css",
@@ -14,10 +14,13 @@
   "license": "ISC",
   "dependencies": {
     "bootstrap-sass": "^3.3.7",
-    "jquery": "^3.1.0"
+    "gsap": "^1.19.0",
+    "jquery": "^3.1.0",
+    "scrollmagic": "^2.0.5"
   },
   "browser": {
-    "bootstrap": "./node_modules/bootstrap-sass/assets/javascripts/bootstrap.js"
+    "bootstrap": "./node_modules/bootstrap-sass/assets/javascripts/bootstrap.js",
+    "gsapplugin": "scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap"
   },
   "browserify": {
     "transform": [

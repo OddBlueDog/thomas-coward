@@ -1,0 +1,66 @@
+.home-banner {
+  height: 80vh;
+  width: 100%;
+  position: fixed;
+  top: $navbar-height;
+  z-index: -1;
+  overflow: hidden;
+  transform: translatez(0);
+
+  &__img {
+    height: 120%;
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    background-position:center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transform: translatez(0);
+  }
+
+   &__mask{
+    background-image: linear-gradient(to left, rgba(70, 70, 70, 0.4),rgba(103, 103, 103, 0.6));
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: '';
+  }
+
+  &__color-mask {
+    opacity: 0;
+    background-image: linear-gradient(to left, rgba(65, 73, 15, 0.6),rgba(111, 120, 58, 0.8));
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: '';
+  }
+
+    &__contents {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    color: #FFF;
+    position: relative;
+    z-index: 1;
+
+    h1 {
+      font-size: 48px;
+      font-family: 'Exo', sans-serif;
+    }
+  }
+
+  &__fake-space {
+    height: 80vh;
+    width: 100%;
+  }
+}
