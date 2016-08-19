@@ -1,5 +1,7 @@
+@import '../node_modules/video.js/dist/video-js';
 @import 'bootstrap-variables';
 @import '../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss';
+
 
 
 // Fonts
@@ -21,3 +23,4 @@
 
 // Components
 @import 'components/home-banner';
+@import 'components/vjs';
