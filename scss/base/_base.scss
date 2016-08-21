@@ -2,6 +2,10 @@ body {
     padding-top: 80px;
 }
 
+.clear {
+  clear:both;
+}
+
 .white-wrapper {
   background-color: #FFF;
   overflow:hidden;
@@ -13,10 +17,28 @@ body {
   }
 }
 
+.grey-wrapper {
+  background-color: #e8e8e8;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  margin-bottom: -60px;
+}
+
 .margin-bottom {
 
   &--lg {
     margin-bottom: $grid-gutter-width * 2;
   }
 
+}
+
+.margin-top {
+
+  &--lg {
+    margin-top: $grid-gutter-width * 2;
+  }
+}
+
+label {
+  font-weight: normal;
 }

@@ -7,6 +7,7 @@
 // Fonts
 @import 'https://fonts.googleapis.com/css?family=Exo:200';
 @import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css';
+@import 'https://fonts.googleapis.com/css?family=Slabo+27px';
 
 
 
@@ -16,11 +17,23 @@
 
 
 
+// Utils
+@import 'utils/mixins';
+
+
+
 // Bootstrap overrides
 @import 'bootstrap/navbar';
+@import 'bootstrap/labels';
+@import 'bootstrap/panels';
+
 
 
 
 // Components
 @import 'components/home-banner';
 @import 'components/vjs';
+@import 'components/portfolio';
+@import 'components/widget';
+@import 'components/entry-content';
+@import 'components/searchform';

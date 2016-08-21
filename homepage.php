@@ -9,7 +9,7 @@
 
 <?php get_header(); ?>
 
-<div class="home-banner__fake-space"></div>
+<div class="home-banner__fake-space" id="home"></div>
 <div class="home-banner">
     <div class="home-banner__img"
     "
@@ -24,7 +24,7 @@
 
 <div class="white-wrapper white-wrapper--extra-padding-top">
     <section class="container" id="content" role="main">
-        <div class="row margin-bottom--lg">
+        <div class="row margin-bottom--lg" id="aboutme">
             <div class="col-lg-4 col-md-6 text-center margin-bottom--lg">
                 <i class="fa-pop fa fa-5x  <?php echo CFS()->get('about_icon'); ?> aria-hidden=" true"></i>
                 <?php echo CFS()->get('about_info'); ?>
@@ -32,10 +32,25 @@
             <div class="col-lg-4 col-md-6 text-center  margin-bottom--lg">
                 <i class="fa fa-pop  fa-5x  <?php echo CFS()->get('front_end_icon'); ?> aria-hidden=" true"></i>
                 <?php echo CFS()->get('front_end_text'); ?>
+
+                <?php
+                $fields = CFS()->get('front_end_labels');
+                foreach ($fields as $field) {
+                    ?> <span class="label label-primary"> <?php echo $field['front_end_label']; ?> </span> <?php
+                }
+                ?>
+
             </div>
             <div class="col-lg-4 col-md-6 text-center  margin-bottom--lg">
                 <i class="fa fa-pop  fa-5x  <?php echo CFS()->get('backend_icon'); ?> aria-hidden=" true"></i>
                 <?php echo CFS()->get('backend_text'); ?>
+
+                <?php
+                $fields = CFS()->get('backend_labels');
+                foreach ($fields as $field) {
+                    ?> <span class="label label-primary"> <?php echo $field['backend_label']; ?> </span> <?php
+                }
+                ?>
             </div>
             <div class="col-xs-12">
                 <hr>
@@ -46,6 +61,13 @@
             <div class="col-lg-4 col-md-6 text-center margin-bottom--lg">
                 <i class="fa fa-pop  fa-5x  <?php echo CFS()->get('serverside_icon'); ?> aria-hidden=" true"></i>
                 <?php echo CFS()->get('serverside_text'); ?>
+
+                <?php
+                $fields = CFS()->get('serverside_labels');
+                foreach ($fields as $field) {
+                    ?> <span class="label label-primary"> <?php echo $field['serverside_label']; ?> </span> <?php
+                }
+                ?>
             </div>
 
             <div class="col-lg-4 col-md-6 text-center margin-bottom--lg">
@@ -62,7 +84,7 @@
 
     </section>
 
-    <div class="vjs-wrapper">
+    <div class="vjs-wrapper" id="portfolio">
         <div class="vjs-wrapper__background">
             <div class="vjs-wrapper__text-layer">
                 <div class="container text-center">
@@ -73,15 +95,59 @@
         </div>
         <div class="vjs-youtube">
             <video
-                id="vid1"
+                id="portfolio-video"
                 class="video-js vjs-default-skin  "
-                autoplay
                 width="100%" height="100%"
                 loop
+                preload="auto"
                 data-setup='{ "controlBar": false, "loadingSpinner": false, "textTrackDisplay": true, "techOrder": ["youtube"], "sources": [{ "type": "video/youtube", "src": "https://www.youtube.com/watch?v=QhCX2ypRDM0"}] }'
             >
         </div>
     </div>
+
+    <?php
+    $fields = CFS()->get('portfolio_projects');
+    foreach ($fields as $field) {
+        ?>
+        <div class="portfolio__project">
+            <div class="portfolio__project__overlay">
+                <i class="fa fa-4x fa-hand-pointer-o" aria-hidden="true"></i>
+            </div>
+            <img class="portfolio__project__img" src="<?php echo $field['portfolio_img']; ?>" alt="<?php echo $field['portfolio_title']; ?>"/>
+            <div class="portfolio__project__text">
+                <h3><?php echo $field['portfolio_title']; ?></h3>
+                <p><?php echo $field['portfolio_text']; ?></p>
+                <a target="_blank" href="<?php echo $field['portfolio_link']['url']; ?>" class="btn btn-primary">Visit</a>
+            </div>
+        </div>
+        <?php
+    }
+    ?>
+
+    <div class="clear"></div>
+    <div class="grey-wrapper">
+        <div class="container" id="contactme">
+            <div class="row">
+                <div class="col-xs-12 text-center">
+                    <h2>Contact Me</h2>
+                    <br />
+                </div>
+                <div class="col-xs-12 col-md-6">
+                    <?php echo do_shortcode('[contact-form-7 id="263" title="Contact form 1"]') ?>
+                </div>
+
+                <div class="col-xs-12 col-md-6 text-center">
+                    <i class="fa fa-pop  fa-5x  <?php echo CFS()->get('contact_icon'); ?> aria-hidden=" true"></i>
+                    <br />
+                    <br />
+                    <?php echo CFS()->get('contact_text'); ?>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
 
 
     <?php get_footer(); ?>

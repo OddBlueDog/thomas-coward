@@ -1,5 +1,5 @@
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-    <header>
+<article class="panel panel-primary" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+    <header class="panel-heading">
         <?php if (is_singular()) {
             echo '<h1 class="entry-title">';
         } else {
@@ -12,6 +12,11 @@
         } ?> <?php edit_post_link(); ?>
         <?php if (!is_search()) get_template_part('entry', 'meta'); ?>
     </header>
-    <?php get_template_part('entry', (is_archive() || is_search() ? 'summary' : 'content')); ?>
-    <?php if (!is_search()) get_template_part('entry-footer'); ?>
+    <div class="panel-body">
+        <?php get_template_part('entry', (is_archive() || is_search() ? 'summary' : 'content')); ?>
+    </div>
+
+    <div class="panel-footer">
+        <?php if (!is_search()) get_template_part('entry-footer'); ?>
+    </div>
 </article>
