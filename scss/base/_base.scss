@@ -11,6 +11,8 @@ body {
   overflow:hidden;
   transform: translateZ(0);
   box-shadow: 0px -4px 5px rgba(100, 100, 100, 0.6);
+  z-index: 1;
+  position: relative;
 
   &--extra-padding-top {
     padding-top: 80px;

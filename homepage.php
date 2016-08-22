@@ -15,8 +15,19 @@
     "
     style="background-image: url(<?php echo CFS()->get('homepage_banner_img'); ?>);">
 </div>
-<div class="home-banner__contents container">
-    <?php echo CFS()->get('homepage_banner_text'); ?>
+<div class="home-banner__contents">
+    <div class="container">
+        <?php echo CFS()->get('homepage_banner_text'); ?>
+        <div class="home-banner__social-links">
+            <a target="_blank" href="<?php echo CFS()->get('linkedin_link')['url']; ?>">
+                <i class="fa fa-linkedin-square fa-3x"></i></a>
+            <a target="_blank" href="<?php echo CFS()->get('github_link')['url']; ?>">
+                <div class="fa fa-github-square fa-3x"></div>
+            </a>
+        </div>
+    </div>
+
+
 </div>
 <div class="home-banner__color-mask"></div>
 
@@ -99,6 +110,7 @@
                 class="video-js vjs-default-skin  "
                 width="100%" height="100%"
                 loop
+                autoplay
                 preload="auto"
                 data-setup='{ "controlBar": false, "loadingSpinner": false, "textTrackDisplay": true, "techOrder": ["youtube"], "sources": [{ "type": "video/youtube", "src": "https://www.youtube.com/watch?v=QhCX2ypRDM0"}] }'
             >
@@ -113,11 +125,13 @@
             <div class="portfolio__project__overlay">
                 <i class="fa fa-4x fa-hand-pointer-o" aria-hidden="true"></i>
             </div>
-            <img class="portfolio__project__img" src="<?php echo $field['portfolio_img']; ?>" alt="<?php echo $field['portfolio_title']; ?>"/>
+            <img class="portfolio__project__img" src="<?php echo $field['portfolio_img']; ?>"
+                 alt="<?php echo $field['portfolio_title']; ?>"/>
             <div class="portfolio__project__text">
                 <h3><?php echo $field['portfolio_title']; ?></h3>
                 <p><?php echo $field['portfolio_text']; ?></p>
-                <a target="_blank" href="<?php echo $field['portfolio_link']['url']; ?>" class="btn btn-primary">Visit</a>
+                <a target="_blank" href="<?php echo $field['portfolio_link']['url']; ?>"
+                   class="btn btn-primary">Visit</a>
             </div>
         </div>
         <?php
@@ -130,7 +144,7 @@
             <div class="row">
                 <div class="col-xs-12 text-center">
                     <h2>Contact Me</h2>
-                    <br />
+                    <br/>
                 </div>
                 <div class="col-xs-12 col-md-6">
                     <?php echo do_shortcode('[contact-form-7 id="263" title="Contact form 1"]') ?>
@@ -138,8 +152,8 @@
 
                 <div class="col-xs-12 col-md-6 text-center">
                     <i class="fa fa-pop  fa-5x  <?php echo CFS()->get('contact_icon'); ?> aria-hidden=" true"></i>
-                    <br />
-                    <br />
+                    <br/>
+                    <br/>
                     <?php echo CFS()->get('contact_text'); ?>
 
                 </div>
@@ -147,7 +161,6 @@
             </div>
         </div>
     </div>
-
 
 
     <?php get_footer(); ?>
